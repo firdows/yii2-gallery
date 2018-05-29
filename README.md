@@ -33,11 +33,11 @@ Result
 
   - Create gallery , View gallery , Preview Photo slide
 
-    <img src="/guide/3.png" width="50%"> 
+    <img src="/guide/3.png" width="50%">     
     
+    <img src="/guide/3.5.png" width="50%"> 
+
     <img src="/guide/4.png" width="50%">
-    
-    <img src="/guide/4.5.png" width="50%"> 
 
     <img src="/guide/5.png" width="50%">
 
