@@ -20,5 +20,11 @@
 
 Result
 ------
-1. Go to [backend](http://localhost/backend/web/?r=gallery)
-<img src="/guide/1.png" height="100px">
+1. Go to [backend](http://localhost/backend/web/?r=gallery) http://localhost/backend/web/?r=gallery
+  - Create category
+    <img src="/guide/1.png" width="50%">
+  - Create subcategory
+    <img src="/guide/2.png" width="50%">
+  - Create gallery , View gallery
+    <img src="/guide/3.png" width="50%"> <img src="/guide/4.png" width="50%"> <img src="/guide/5.png" width="50%">
+
