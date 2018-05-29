@@ -51,7 +51,7 @@ class Category extends \yii\mongodb\ActiveRecord {
             '_id' => 'ID',
             'title' => 'Title',
             'detail' => 'Detail',
-            'pid' => 'Pid',
+            'pid' => 'Subcategory',
         ];
     }
 

@@ -9,6 +9,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'defaultRoute' => 'gallery/default',
     'modules' => [
         'gallery' => [
             'class' => 'frontend\modules\gallery\Module',
