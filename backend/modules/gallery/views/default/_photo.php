@@ -15,7 +15,7 @@ FengyuanchenViewerAsset::register($this);
 ?>
 <div class="panel panel-default">
     <div class="panel-heading clearfix">
-        <?= Html::tag('h5', 'เอกสารแนบ ', ['class' => 'panel-title']) ?>
+        <?= Html::tag('h5', 'Photo', ['class' => 'panel-title']) ?>
     </div>
     <div class="panel-body">
         <div class="row docs-pictures mailbox-attachments clearfix">

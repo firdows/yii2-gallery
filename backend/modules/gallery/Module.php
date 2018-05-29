@@ -5,8 +5,8 @@ namespace backend\modules\gallery;
 /**
  * gallery module definition class
  */
-class Module extends \yii\base\Module
-{
+class Module extends \yii\base\Module {
+
     /**
      * {@inheritdoc}
      */
@@ -15,10 +15,11 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public function init()
-    {
+    public function init() {
+        $this->layout = 'tab';
         parent::init();
 
         // custom initialization code goes here
     }
+
 }

@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->photoImg;
                 }
             ],
-            '_id',
+            //'_id',
             'title',
             // 'files',
             'detail',
