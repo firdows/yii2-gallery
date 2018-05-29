@@ -6,9 +6,9 @@ use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\modules\gallery\models\CategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Categories';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::$app->request->get('pid') ? 'Sub Category' : 'Categories';
+$this->params['breadcrumbs'][] = $this->title ;
 ?>
 <div class="category-index">
 

@@ -39,12 +39,20 @@ Result
 
   - View Categories page
 
-    <img src="/guide/5.png" width="90%">
-
-  - Click down form category
-
     <img src="/guide/6.png" width="90%">
+
+  - Click down form category to subcategory
 
     <img src="/guide/7.png" width="90%">
 
+  - Click down to gallery
+
     <img src="/guide/8.png" width="90%">
+
+  - Click down to defail
+
+    <img src="/guide/9.png" width="90%">
+
+  - Click down to preview photo
+
+    <img src="/guide/10.png" width="90%">
