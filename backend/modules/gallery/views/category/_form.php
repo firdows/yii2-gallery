@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 use backend\modules\gallery\models\Category;
 
@@ -14,22 +15,14 @@ use backend\modules\gallery\models\Category;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
-        <?= $form->field($model, 'pid', ['options' => ['class' => 'form-group col-sm-3']])->dropDownList(Category::getList(), ['prompt' => 'Select', 'size' => 4, 'class' => 'form-control pid-sub']) ?>
-        <select id="topicId" name="topicId" size="6" style="float: left;">
-
-            <?php
-//            if ($topics = Topic::getTopicParent($top_id)) {
-//                foreach ($topics as $id => $name) {
-//                    $token = $name;
-//                    //while ($token !== false) {//show all subtopics
-//                    echo sprintf('<option value="%d" %s>%s</option>', $id, ($info['topicId'] == $id) ? 'selected="selected"' : '', $token);
-//                    //    $token = strtok('/');
-//                    //}
-//                }
-//            }
-            ?>
-        </select>
-        <span class="child_area" style="vertical-align: top;float: left;padding-left: 3px;"></span>
+        <?= Html::label($model->getAttributeLabel('pid'), '', ['class' => 'form-group col-sm-12']) ?>
+    </div>
+    <div class="row child_area">
+        <?=
+                $form->field($model, 'pid', ['options' => ['class' => 'form-group col-sm-3']])
+                ->dropDownList(Category::getList(), ['prompt' => 'Select', 'size' => 4, 'class' => 'form-control pid-main'])
+                ->label(false);
+        ?>      
 
     </div>
 
@@ -52,6 +45,8 @@ use backend\modules\gallery\models\Category;
 <?php
 $dataCate = json_encode(Category::getChild());
 $pidInput = Html::getInputId($model, 'pid');
+$pidName = Html::getInputName($model, 'pid');
+//$urlAjax = Url::to('')
 $js[] = <<< JS
    
     var dataTopic = $dataCate;
@@ -59,13 +54,15 @@ $js[] = <<< JS
     var selectVal = {};
     var subIndex = 0;
     console.log(dataTopic);
+        var firstElement ;
     $(document).ready(function () {
+        
         console.log(dataTopic);
         $('select#$pidInput').on('change', function () {
             var id = $(this).find('option:selected').val();
-        alert(id);
+        //alert(id);
             if (id != "undefined") {
-                $('.child_area').empty();
+                $('.child_area .pid-sub').remove();
                 $('#dynamic-form').empty();
 
                 selectVal[$(this).attr('id')] = id;
@@ -83,13 +80,15 @@ $js[] = <<< JS
             var subData = child['0'].sub;
             console.log(subData);
             var tagId = topic + id;
-            var tagSelect = $('<select class="pid-sub" data-item="' + subIndex + '" size="6" id="' + tagId + '"></select>');
+            var tagDiv = $('<div class="form-group col-sm-3 field-category-pid pid-sub"></div>');
+            var tagSelect = $('<select class="form-control" data-item="' + subIndex + '" size="4" id="' + tagId + '"></select>');
             //$(tagSelect).append('<option>— Select —</option>');
             $.each(subData, function (i, v) {
                 option = $('<option></option>').val(v.id).text(v.title);
                 $(tagSelect).append(option);
             });
-            $('.child_area').append(tagSelect);
+            tagDiv = $(tagDiv).append(tagSelect);
+            $('.child_area').append(tagDiv);
 
             $("#" + tagId).on('change click', function () {
                 inputId = $(this).attr('id');
@@ -120,8 +119,8 @@ $js[] = <<< JS
     }
 
     function changeInputName(inputId) {
-        $('select[name="topicId"]').removeAttr('name');
-        $('select#' + inputId).attr('name', 'topicId');
+        $('select[name="$pidName"]').removeAttr('name');
+        $('select#' + inputId).attr('name', '$pidName');
     }
 
     function getObjects(obj, key, val) {

@@ -19,19 +19,31 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Gallery', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
+    <?=
+    GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            [
+                'attribute' => 'file',
+                'format' => 'html',
+                'value' => function($model) {
+                    return $model->photoImg;
+                }
+            ],
             '_id',
             'title',
-            'files',
+            // 'files',
             'detail',
-            'cate_id',
-
+            [
+                'attribute' => 'cate_id',
+                'value' => function($model) {
+                    return $model->path;
+                }
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    ?>
 </div>

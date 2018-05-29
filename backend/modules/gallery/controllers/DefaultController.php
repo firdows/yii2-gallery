@@ -51,6 +51,9 @@ class DefaultController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id) {
+        $model = $this->findModel($id);
+//        print_r($model->photos);
+//        exit();
         return $this->render('view', [
                     'model' => $this->findModel($id),
         ]);
@@ -91,13 +94,23 @@ class DefaultController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
+        $modelPhoto = new Photo();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => (string) $model->_id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+
+            $modelPhoto->file = UploadedFile::getInstances($modelPhoto, "file");
+            if ($model->save()) {
+                $modelPhoto->gallery_id = (string) $model->_id;
+                $modelPhoto->uploads();
+                return $this->redirect(['view', 'id' => (string) $model->_id]);
+            }
         }
+
 
         return $this->render('update', [
                     'model' => $model,
+                    'modelPhoto' => $modelPhoto,
         ]);
     }
 

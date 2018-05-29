@@ -80,4 +80,25 @@ class Category extends \yii\mongodb\ActiveRecord {
         return $data;
     }
 
+    public static function getParents($id = null) {
+        $models = self::find()->where(['_id' => $id])->all();
+        $data = array();
+        foreach ($models as $model) {
+            $pid = $model->pid ? $model->pid : 0;
+            $parent = self::getParents($pid);
+            $data[] = $model->_id;
+            if ($parent) {
+                $data[] = $parent;
+            }
+        }
+        return implode(',', $data);
+    }
+
+    public function getPath() {
+        $data = self::getParents($this->pid);
+        $models = self::find()->where(['_id' => explode(',', $data)])->all();
+        $models = ArrayHelper::getColumn($models, 'title');        
+        return implode(' / ', $models);
+    }
+
 }
