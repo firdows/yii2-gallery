@@ -56,3 +56,7 @@ Result
   - Click down to preview photo
 
     <img src="/guide/10.png" width="90%">
+
+#### Finish
+
+# Thank you very mush for this opportunity and I hope to see you agin soon.
