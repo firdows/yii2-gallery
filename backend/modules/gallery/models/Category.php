@@ -55,17 +55,29 @@ class Category extends \yii\mongodb\ActiveRecord {
         ];
     }
 
-    public static function getList($cliend = null) {
+    public static function getList($cliend = '') {
         return ArrayHelper::map(self::find()->andWhere(['pid' => $cliend])->all(), function($model) {
                     return (string) $model->_id;
                 }, 'title');
+    }
+
+    public static function getListAll($cliend = '') {
+        $models = self::find()->all();
+        $data = [];
+        foreach ($models as $model) {
+//            if ($child = self::getListAll((string) $model->_id)) {
+//                $data[] = $child;
+//            }
+            $data[] = ['id' => (string) $model->_id, 'title' => $model->path ? $model->path . ' / ' . $model->title : $model->title];
+        }
+        return ArrayHelper::map($data, 'id', 'title');
     }
 
     public function getParent() {
         return $this->hasOne(self::className(), ['pid' => '_id']);
     }
 
-    public static function getChild($pid = null) {
+    public static function getChild($pid = '') {
         $models = self::find()->where(['pid' => $pid])->all();
         $data = array();
         foreach ($models as $model) {
@@ -97,7 +109,7 @@ class Category extends \yii\mongodb\ActiveRecord {
     public function getPath() {
         $data = self::getParents($this->pid);
         $models = self::find()->where(['_id' => explode(',', $data)])->all();
-        $models = ArrayHelper::getColumn($models, 'title');        
+        $models = ArrayHelper::getColumn($models, 'title');
         return implode(' / ', $models);
     }
 
