@@ -4,8 +4,9 @@ namespace common\models;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
+//use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use yii\mongodb\ActiveRecord;
 
 /**
  * User model
@@ -27,6 +28,28 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_ACTIVE = 10;
 
 
+    /**
+     * {@inheritdoc}
+     */
+    public static function collectionName()
+    {
+        return ['user', 'category'];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributes()
+    {
+        return [
+            '_id',
+            'id',
+            'title',
+            'detail',
+        ];
+    }
+    
+    
     /**
      * {@inheritdoc}
      */

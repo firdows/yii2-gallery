@@ -72,6 +72,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        Yii::$app->mongodb->open();
+        $result = Yii::$app->mongodb->createCommand(['listIndexes' => 'gallery'])->execute();
         return $this->render('index');
     }
 
