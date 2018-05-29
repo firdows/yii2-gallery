@@ -11,6 +11,13 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+    'controllerMap' => [
+        'mongodb-migrate' => 'yii\mongodb\console\controllers\MigrateController',
+        'migrationNamespaces' => [
+            'frontend\migrations',
+            'console\migrations',
+        ],
+    ],
     'modules' => [
         'gii1' => [
             'class' => 'yii\gii\Module',
