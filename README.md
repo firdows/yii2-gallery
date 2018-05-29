@@ -18,13 +18,33 @@
 3. Database Migration for Default gallery
 4. Upload to Githubs
 
+
 Result
 ------
-1. Go to [backend](http://localhost/backend/web/?r=gallery) http://localhost/backend/web/?r=gallery
+1. Go to [backend](http://localhost/backend/web/?r=gallery) \(http://localhost/backend/web/?r=gallery)
+
   - Create category
+
     <img src="/guide/1.png" width="50%">
+
   - Create subcategory
+
     <img src="/guide/2.png" width="50%">
+
   - Create gallery , View gallery
+
     <img src="/guide/3.png" width="50%"> <img src="/guide/4.png" width="50%"> <img src="/guide/5.png" width="50%">
 
+2. Go to [fronend](http://localhost/fronend/web/?r=category) \(http://localhost/fronend/web/?r=category)
+
+  - View Categories page
+
+    <img src="/guide/5.png" width="90%">
+
+  - Click down form category
+
+    <img src="/guide/6.png" width="90%">
+
+    <img src="/guide/7.png" width="90%">
+
+    <img src="/guide/8.png" width="90%">
