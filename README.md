@@ -31,9 +31,15 @@ Result
 
     <img src="/guide/2.png" width="50%">
 
-  - Create gallery , View gallery
+  - Create gallery , View gallery , Preview Photo slide
 
-    <img src="/guide/3.png" width="50%"> <img src="/guide/4.png" width="50%"> <img src="/guide/5.png" width="50%">
+    <img src="/guide/3.png" width="50%"> 
+    
+    <img src="/guide/4.png" width="50%">
+    
+    <img src="/guide/4.5.png" width="50%"> 
+
+    <img src="/guide/5.png" width="50%">
 
 2. Go to [fronend](http://localhost/fronend/web/?r=category) \(http://localhost/fronend/web/?r=category)
 
