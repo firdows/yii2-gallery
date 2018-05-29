@@ -57,6 +57,10 @@ Result
 
     <img src="/guide/10.png" width="90%">
 
+3. Responsive Design
+
+    <img src="/guide/11.png" width="100%">
+
 #### Finish
 
 # Thank you very mush for this opportunity and I hope to see you agin soon.
