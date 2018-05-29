@@ -63,17 +63,17 @@ class Gallery extends \yii\mongodb\ActiveRecord {
         return $models;
     }
 
-    public function getPhotoImg() {
+    public function getPhotoImg($maxWidth = '120px;') {
         $photo = $this->photo;
         if ($photo) {
             return Html::img($photo->getUploadedFileUrl('file'), [
                         'class' => 'img-thumbnail gallery-items',
-                        'style' => 'max-width:120px;'
+                        'style' => "max-width:{$maxWidth}"
             ]);
         } else {
             return Html::img(Photo::noImg, [
                         'class' => 'img-thumbnail gallery-items',
-                        'style' => 'max-width:120px;'
+                        'style' => "max-width:{$maxWidth}"
             ]);
         }
     }

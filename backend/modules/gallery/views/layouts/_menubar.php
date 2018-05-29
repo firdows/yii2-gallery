@@ -44,7 +44,7 @@ foreach ($items as $key => $item) {
 //echo Html::a('บันทึกการรักษาย้อนหลัง', ['#'], ['class' => 'btn btn-success navbar-btn navbar-left'])." ";
 echo Nav::widget(
         [
-            'options' => ['class' => 'navbar-inverse nav nav-tabs'],
+            'options' => ['class' => 'nav nav-tabs', 'style' => 'background:#ccc;'],
             'items' => $items,
             'encodeLabels' => false,
         ]

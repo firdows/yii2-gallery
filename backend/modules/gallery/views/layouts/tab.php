@@ -19,7 +19,7 @@ $this->beginContent('@app/views/layouts/main.php');
 <?php #= $this->render('_menubar') ?>
         <div class="box box-solid">
             <div class="box-header with-border">
-                <h3 class="box-title"><?php #= $this->title  ?></h3>
+                <h3 class="box-title"><?php #= $this->title   ?></h3>
             </div>
             <div class="box-body">
 <?php #= $content ?>
@@ -30,9 +30,9 @@ $this->beginContent('@app/views/layouts/main.php');
      /.tab-content 
 </div>-->
 
-<div class="nav-tabs-custom">
+<div class="panel">
     <?= $this->render('_menubar') ?>
-    <div class="tab-content">
+    <div class="panel-body">
         <?= $content ?>
     </div>
     <!-- /.tab-content -->

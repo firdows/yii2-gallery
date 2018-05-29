@@ -8,7 +8,12 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'frontend\controllers',    
+    'controllerNamespace' => 'frontend\controllers',
+    'modules' => [
+        'gallery' => [
+            'class' => 'frontend\modules\gallery\Module',
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
