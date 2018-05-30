@@ -67,6 +67,8 @@ Result
 
     <img src="/guide/11.png" width="100%">
 
+4. Database at dbs directory
+
 #### Finish
 
 # Thank you very mush for this opportunity and I hope to see you agin soon.
